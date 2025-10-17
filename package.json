@@ -1,0 +1,13 @@
+{
+  "name": "south-florida-roofing-ivr",
+  "version": "1.0.0",
+  "description": "Automated phone receptionist for South Florida Roofing (All Phase Roofing) built for Avaya CPaaS.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "moment-timezone": "^0.5.43"
+  }
+}
