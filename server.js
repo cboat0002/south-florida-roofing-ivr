@@ -26,6 +26,13 @@ const moment = require('moment-timezone');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 
+// Simple health check for the root path. This helps verify the service
+// is running when accessed via the base URL.
+app.ge('/', (req, res) => {
+  res.send('South Florida Roofing IVR is running.');
+});
+
+
 // Storage for call sessions. Each session holds caller data as we gather it.
 const sessions = new Map();
 // Map recording IDs to a tuple of callSid and the field name being captured.
@@ -428,9 +435,5 @@ app.post('/ivr/transcribe', (req, res) => {
   }
   res.sendStatus(200);
 });
+modulmodule.exports = app;
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`South Florida Roofing IVR listening on port ${PORT}`);
-});
